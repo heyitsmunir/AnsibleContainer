@@ -11,7 +11,6 @@ RUN pip3 install --upgrade setuptools
 RUN python3 -m pip install -U pip
 COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --upgrade -r /tmp/requirements.txt
-RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PASS}" |
-chpasswd
+RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PASS}" | chpasswd
 USER ${UID}:${GID}
 WORKDIR /home/${USER}
